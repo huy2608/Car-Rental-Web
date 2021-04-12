@@ -1,0 +1,14 @@
+SELECT carId, carName, color, year, category, price, quantity, createDate 
+                FROM Car 
+                WHERE carName = 'a' And carId NOT IN 
+                (
+				    SELECT a.carId 
+                    FROM   Car a 
+                          Inner JOIN BillDetail b 
+                               ON a.carId = b.carId 
+                    WHERE  (Convert(Date, rentalDate) <= Convert(Date, '2021-3-3') AND Convert(Date, returnDate) >= Convert(Date, '2021-3-4')) 
+                           OR (Convert(Date, rentalDate) < Convert(Date, '2021-3-3') AND Convert(Date, returnDate) >= Convert(Date, '2021-3-3')) 
+                           OR (Convert(Date, '2021-3-3') <= Convert(Date, rentalDate) AND Convert(Date, '2021-3-4') >= Convert(Date, rentalDate)) 
+                           And(a.quantity-b.totalCar < 1) 
+                )
+                Order By createDate Desc OFFSET  0 Rows Fetch next 2 Row Only

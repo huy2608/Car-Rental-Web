@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
+    </head>
+    <body>
+        <h1>Login Page</h1>
+        <form action="login" method="POST">
+            Username: <input type="text" name="txtUsername" value="" /></br>
+            Password: <input type="password" name="txtPassword" value="" /></br>
+            <div class="g-recaptcha"
+                 data-sitekey="6LctfGgaAAAAAOMl8XlQIAXa0B1UEPl7WC3zrviW"></div>
+            <a href="searchPage">Book Car</a></br>
+            <input type="submit" value="login" />
+        </form>
+        <a href="registrationPage">Create new account</a>
+    </body>
+</html>
